@@ -55,8 +55,7 @@ console.log(forecast);
       setLoading(false);
     }
   };
-
- const processData = () => {
+const processData = () => {
   if (!actualData.length || !forecastData.length) return;
 
   let filteredActual = [...actualData];
@@ -76,17 +75,12 @@ console.log(forecast);
   const combined: ChartPoint[] = filteredActual.slice(0, 100).map((a) => {
     const targetTime = new Date(a.startTime);
 
-    let validForecast: ForecastItem | null = null;
-
-    forecastData.forEach((f) => {
-      const fStart = new Date(f.startTime);
-
-      if (fStart <= targetTime) {
-        if (!validForecast || fStart > new Date(validForecast.startTime)) {
-          validForecast = f;
-        }
-      }
-    });
+    const validForecast = forecastData
+      .filter((f) => new Date(f.startTime) <= targetTime)
+      .sort(
+        (a, b) =>
+          new Date(b.startTime).getTime() - new Date(a.startTime).getTime()
+      )[0];
 
     return {
       time: a.startTime.slice(11, 16),
