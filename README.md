@@ -24,17 +24,18 @@ Tech Stack
 Frontend:
 
 React (Vite)
-TailwindCSS
-Recharts
-Analysis:
-Python
-Pandas
-Matplotlib
-Jupyter Notebook
+1) TailwindCSS
+2) Recharts
+3) Analysis:
+   Python
+   Pandas
+   Matplotlib
+   Jupyter Notebook
 
 How to Run Frontend
-npm install
-npm run dev
+--> npm install
+--> npm run dev
+
 Analysis
 
 Open the notebook:
